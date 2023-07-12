@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:introduce_e1if/models/comment.dart';
+import 'package:intl/intl.dart';
 
 class CommentTile extends StatelessWidget {
   const CommentTile({
@@ -15,16 +16,31 @@ class CommentTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(
-        comment.author,
-        style: const TextStyle(
-          fontSize: 14,
-          fontWeight: FontWeight.bold,
-        ),
+      title: Row(
+        children: [
+          Text(
+            comment.author,
+            style: const TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const VerticalDivider(width: 8),
+          Text(
+            DateFormat("yy/MM/dd HH:mm:ss").format(comment.createdAt),
+            style: const TextStyle(fontSize: 10, color: Colors.grey),
+          ),
+        ],
       ),
-      subtitle: Text(
-        comment.content,
-        style: const TextStyle(fontSize: 14, color: Colors.black87),
+      subtitle: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(height: 4),
+          Text(
+            comment.content,
+            style: const TextStyle(fontSize: 14, color: Colors.black87),
+          ),
+        ],
       ),
       trailing: IconButton(
         alignment: Alignment.centerRight,
