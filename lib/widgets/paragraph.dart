@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 
 class Paragraph extends StatelessWidget {
-  const Paragraph(this.content, {super.key, this.separator = '\n'});
+  const Paragraph(
+    this.content, {
+    super.key,
+    this.separator = '\n',
+    this.style,
+  });
 
   final List<String> content;
   final String separator;
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +21,7 @@ class Paragraph extends StatelessWidget {
         style: const TextStyle(
           height: 1.5,
           fontSize: 14,
-        ),
+        ).merge(style),
       ),
     );
   }

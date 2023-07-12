@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Header extends StatelessWidget {
-  const Header(this.content, {super.key});
+  const Header(this.content, {super.key, this.style});
 
   final String content;
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class Header extends StatelessWidget {
           fontSize: 20,
           height: 1.5,
           fontWeight: FontWeight.bold,
-        ),
+        ).merge(style),
       ),
     );
   }
