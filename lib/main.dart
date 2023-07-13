@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:introduce_e1if/sjscreens/SeongjunScreen.dart';
+import 'package:introduce_e1if/screens/seongjun.dart';
 import 'package:introduce_e1if/models/member.dart';
 import 'package:introduce_e1if/screens/jinyong.dart';
 import 'package:introduce_e1if/services/comment.dart';

@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:introduce_e1if/models/comment.dart';
 
 import 'package:introduce_e1if/services/comment.dart';
 import 'package:provider/provider.dart';
 
-import 'comments.dart';
-import 'feed.dart';
+import 'package:introduce_e1if/widgets/feed.dart';
 
 class SeongjunScreen extends StatelessWidget {
   const SeongjunScreen({super.key});
@@ -74,7 +74,38 @@ class SeongjunScreen extends StatelessWidget {
                 main: '드라마나 영화에서 누가 울면 따라서 눈물이 나요ㅠ(확실히 F)',
                 main2: '고양이를 너무 좋아해서 고양이만 보면 발걸음을 멈춰요.',
               ),
-              MainApp()
+              Column(
+                children: [
+                  TextField(
+                    onSubmitted: (query) {
+                      setState(() {
+                        return [
+                          Comment(
+                            id: DateTime.now().toString(),
+                            author: 'Anonymous',
+                            content: query,
+                          ),
+                          ...comments,
+                        ];
+                      });
+                    },
+                  ),
+                  ...comments.map((comment) => ListTile(
+                        title: Text(comment.author),
+                        subtitle: Text(comment.content),
+                        trailing: IconButton(
+                          icon: const Icon(Icons.delete_outline),
+                          onPressed: () {
+                            setState(() {
+                              return comments
+                                  .where((c) => c.id != comment.id)
+                                  .toList();
+                            });
+                          },
+                        ),
+                      ))
+                ],
+              ),
             ],
           ),
         ),
