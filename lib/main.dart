@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:introduce_e1if/models/member.dart';
 import 'package:introduce_e1if/screens/jinyong.dart';
+import 'package:introduce_e1if/screens/kia.dart';
 import 'package:introduce_e1if/services/comment.dart';
 import 'package:introduce_e1if/widgets/header.dart';
 import 'package:introduce_e1if/widgets/member_tile.dart';
@@ -76,6 +77,7 @@ class MainApp extends StatelessWidget {
       role: '팀원',
       tmi: '저는 집순이입니다.',
       blog: '',
+      widget: const KiaPage(),
       github: 'github.com/kiakim01',
       profile:
           'https://ca.slack-edge.com/T043597JK8V-U05D6G5MADS-4ec3ce18cdf8-512',
