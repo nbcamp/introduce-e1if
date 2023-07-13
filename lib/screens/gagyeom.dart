@@ -14,10 +14,6 @@ class GagyeomScreen extends StatefulWidget {
 }
 
 class _GagyeomScreenState extends State<GagyeomScreen> {
-  List<Comment> comments = [
-    Comment(id: '1', author: 'Anonymous', content: '안녕하세요!'),
-    Comment(id: '2', author: 'Anonymous', content: '잘부탁해요!'),
-  ];
   final TextEditingController textarea = TextEditingController();
 
   @override
