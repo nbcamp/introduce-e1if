@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:introduce_e1if/models/member.dart';
 import 'package:introduce_e1if/screens/jinyong.dart';
 import 'package:introduce_e1if/screens/sanghun.dart';
+import 'package:introduce_e1if/screens/gagyeom.dart';
 import 'package:introduce_e1if/services/comment.dart';
 import 'package:introduce_e1if/widgets/header.dart';
 import 'package:introduce_e1if/widgets/member_tile.dart';
@@ -68,6 +69,7 @@ class MainApp extends StatelessWidget {
       role: '팀원',
       tmi: '귀여운 고양이 한 마리를 키웁니다',
       blog: 'velog.io/@rkrua0418',
+      widget: const GagyeomScreen(),
       github: 'github.com/rkrua',
       profile:
           'https://ca.slack-edge.com/T043597JK8V-U059UCE8EEB-6804775942c0-512',
