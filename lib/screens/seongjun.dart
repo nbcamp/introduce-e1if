@@ -8,7 +8,9 @@ import 'package:provider/provider.dart';
 import 'package:introduce_e1if/widgets/feed.dart';
 
 class SeongjunScreen extends StatelessWidget {
-  const SeongjunScreen({super.key});
+  SeongjunScreen({super.key});
+
+  final TextEditingController textarea = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +79,11 @@ class SeongjunScreen extends StatelessWidget {
               Column(
                 children: [
                   TextField(
+                    controller: textarea,
                     onSubmitted: (query) {
+                      if (query.isEmpty) {
+                        return;
+                      }
                       setState(() {
                         return [
                           Comment(
@@ -88,6 +94,7 @@ class SeongjunScreen extends StatelessWidget {
                           ...comments,
                         ];
                       });
+                      textarea.clear();
                     },
                   ),
                   ...comments.map((comment) => ListTile(

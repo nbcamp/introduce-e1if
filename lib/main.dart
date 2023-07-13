@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:introduce_e1if/screens/seongjun.dart';
 import 'package:introduce_e1if/models/member.dart';
 import 'package:introduce_e1if/screens/jinyong.dart';
@@ -47,7 +48,7 @@ class MainApp extends StatelessWidget {
       role: '팀원',
       tmi: '고양이를 매우 좋아합니다',
       blog: 'velog.io/@tjdwns575859',
-      widget: const SeongjunScreen(),
+      widget: SeongjunScreen(),
       github: 'github.com/dnjs012452',
       profile:
           'https://ca.slack-edge.com/T043597JK8V-U05D7U63WDA-a33633dd164f-512',
