@@ -87,7 +87,7 @@ class _KiaPageState extends State<KiaPage> {
   @override
   Widget build(BuildContext context) {
     return Consumer<CommentService>(builder: (context, commentService, child) {
-      var UseState(:comments, :setState) = commentService.useState('박진용');
+      var UseState(:comments, :setState) = commentService.useState('kiakim');
       return Scaffold(
         appBar: AppBar(
           title: Text(
