@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:introduce_e1if/screens/seongjun.dart';
 import 'package:introduce_e1if/models/member.dart';
 import 'package:introduce_e1if/screens/jinyong.dart';
+import 'package:introduce_e1if/services/handler.dart';
 import 'package:introduce_e1if/screens/kia.dart';
 import 'package:introduce_e1if/screens/sanghun.dart';
 import 'package:introduce_e1if/screens/gagyeom.dart';
@@ -21,8 +22,10 @@ void main() async {
     providers: [
       ChangeNotifierProvider(
         create: (_) => CommentService(
-          save: (payload) => pref.setString('comments', payload),
-          load: () => Future.value(pref.getString('comments')),
+          IO(
+            save: (payload) => pref.setString('comments', payload),
+            load: () => pref.getString('comments'),
+          ),
         ),
       ),
     ],

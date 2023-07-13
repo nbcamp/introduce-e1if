@@ -1,7 +1,9 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:introduce_e1if/models/comment.dart';
+import 'package:introduce_e1if/services/handler.dart';
 
 class UseState {
   final List<Comment> comments;
@@ -13,17 +15,14 @@ class UseState {
   });
 }
 
-class CommentService extends ChangeNotifier {
+class CommentService extends ChangeNotifier with Handler {
   final Map<String, List<Comment>> _comments = {};
-  final Future<void> Function(String payload)? save;
-  final Future<String?> Function()? load;
 
-  CommentService({
-    this.save,
-    this.load,
-  }) {
+  CommentService(IO io) {
+    this.io = io;
+
     try {
-      _load().then((_) => notifyListeners());
+      load().then((_) => notifyListeners());
     } catch (error) {
       // ignore
     }
@@ -35,15 +34,22 @@ class CommentService extends ChangeNotifier {
       setState: (newComments) {
         _comments[name] = newComments();
         notifyListeners();
-        _save();
+        save();
       },
     );
   }
 
-  Future<void> _save() {
-    if (save == null) return Future.value();
+  @override
+  FutureOr<void> retrieve(String payload) {
+    jsonDecode(payload).forEach((key, values) {
+      if (values is! List) return;
+      _comments[key] = values.map((value) => Comment.fromJson(value)).toList();
+    });
+  }
 
-    String payload = jsonEncode(
+  @override
+  FutureOr<String> store() {
+    return jsonEncode(
       _comments.map(
         (key, values) => MapEntry(
           key,
@@ -51,18 +57,5 @@ class CommentService extends ChangeNotifier {
         ),
       ),
     );
-    return save!(payload);
-  }
-
-  Future<void> _load() async {
-    if (load == null) return;
-
-    String? payload = await load!();
-    if (payload == null) return;
-
-    jsonDecode(payload).forEach((key, values) {
-      if (values is! List) return;
-      _comments[key] = values.map((value) => Comment.fromJson(value)).toList();
-    });
   }
 }

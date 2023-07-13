@@ -15,12 +15,6 @@ class JinyongScreen extends StatefulWidget {
 }
 
 class _JinyongScreenState extends State<JinyongScreen> {
-  List<Comment> comments = [
-    Comment(id: '1', author: 'Anonymous', content: '안녕하세요!'),
-    Comment(id: '2', author: 'Anonymous', content: '잘부탁해요!'),
-    Comment(id: '3', author: 'Anonymous', content: '좋은 글이네요!'),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Consumer<CommentService>(builder: (context, commentService, child) {
@@ -69,7 +63,7 @@ class _JinyongScreenState extends State<JinyongScreen> {
                 Comments(
                   comments: comments,
                   onSubmit: (query) {
-                    if (query.isEmpty) {
+                    if (query.trim().isEmpty) {
                       return;
                     }
                     setState(() {
