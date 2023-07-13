@@ -12,9 +12,9 @@ class KiaPage extends StatefulWidget {
 
 class _KiaPageState extends State<KiaPage> {
   List<Comment> comments = [
-    Comment(id: '1', author: 'kiakim', content: '1!'),
-    Comment(id: '2', author: 'kiakim', content: '2!'),
-    Comment(id: '3', author: 'kiakim', content: '3!'),
+    Comment(id: '1', author: '익명이', content: '1!'),
+    Comment(id: '2', author: '익명이', content: '강아지 너모귀여워요!'),
+    Comment(id: '3', author: '익명이', content: '김콩만세!!'),
   ];
 
   @override
@@ -25,9 +25,9 @@ class _KiaPageState extends State<KiaPage> {
       appBar: AppBar(
         title: Text(
           'Introduction page',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Color.fromRGBO(7, 25, 82, 1),
       ),
       body: Container(
         color: Color.fromRGBO(184, 214, 248, 0.6),
@@ -40,17 +40,17 @@ class _KiaPageState extends State<KiaPage> {
                 Row(
                   children: [
                     ClipRRect(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(100),
                       child: SizedBox(
                         child: Image.network(
                           'https://ca.slack-edge.com/T043597JK8V-U05D6G5MADS-4ec3ce18cdf8-512',
-                          width: 100,
-                          height: 100,
+                          width: 130,
+                          height: 130,
                           fit: BoxFit.cover,
                         ),
                       ),
                     ),
-                    SizedBox(width: 50),
+                    SizedBox(width: 30),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -102,7 +102,6 @@ class _KiaPageState extends State<KiaPage> {
                       height: 60,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(10)),
-                          // color: Color.fromRGBO(184, 214, 248, 1),
                           color: Colors.white),
                     ),
                     SizedBox(height: 25),
@@ -182,7 +181,7 @@ class _KiaPageState extends State<KiaPage> {
                           comments = [
                             Comment(
                               id: DateTime.now().toString(),
-                              author: 'Anonymous',
+                              author: '익명이',
                               content: query,
                             ),
                             ...comments,

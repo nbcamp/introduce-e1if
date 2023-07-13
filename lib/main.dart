@@ -75,8 +75,9 @@ class MainApp extends StatelessWidget {
       name: '김귀아',
       mbti: 'ISFJ',
       role: '팀원',
-      tmi: '저는 집순이입니다.',
-      blog: '',
+      tmi:
+          '저는 저희집 강아지를 너무너무 좋아합니다. 하지만 콩이한테 저는 1순위가 아닌것같아요.강아지 마음이 다 그렇죠.. 눈물좀 닦고 올게요..',
+      blog: 'https://velog.io/@hnmpot',
       widget: const KiaPage(),
       github: 'github.com/kiakim01',
       profile:
