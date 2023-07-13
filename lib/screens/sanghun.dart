@@ -111,6 +111,7 @@ class _SanghunScreenState extends State<SanghunScreen> {
                           if (query.isEmpty) {
                             return;
                           }
+                          commentController.clear();
                           setState(() {
                             return [
                               Comment(
