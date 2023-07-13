@@ -26,8 +26,7 @@ class MainApp extends StatefulWidget {
 
 class _MainAppState extends State<MainApp> {
   List<Comment> comments = [
-    Comment(id: '1', author: 'Anonymous', content: '오류'),
-    Comment(id: '2', author: 'Anonymous', content: '제발..'),
+    Comment(id: '1', author: 'Anonymous', content: '오류 제발...'),
   ];
 
   @override
@@ -40,7 +39,7 @@ class _MainAppState extends State<MainApp> {
               comments = [
                 Comment(
                   id: DateTime.now().toString(),
-                  author: 'author',
+                  author: 'Anonymous',
                   content: query,
                 ),
                 ...comments,

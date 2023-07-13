@@ -85,9 +85,9 @@ class _feedState extends State<Feed> {
                         children: [
                           Icon(
                             isFavorite
-                                ? CupertinoIcons.hand_thumbsup
-                                : CupertinoIcons.hand_thumbsup_fill,
-                            color: isFavorite ? Colors.black45 : Colors.black,
+                                ? CupertinoIcons.hand_thumbsup_fill
+                                : CupertinoIcons.hand_thumbsup,
+                            color: isFavorite ? Colors.black87 : Colors.black38,
                             size: 16,
                           ),
                           /*Text(
