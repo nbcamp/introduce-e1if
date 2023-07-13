@@ -7,19 +7,8 @@ import 'package:introduce_e1if/widgets/header.dart';
 import 'package:introduce_e1if/widgets/paragraph.dart';
 import 'package:provider/provider.dart';
 
-class JinyongScreen extends StatefulWidget {
+class JinyongScreen extends StatelessWidget {
   const JinyongScreen({super.key});
-
-  @override
-  State<JinyongScreen> createState() => _JinyongScreenState();
-}
-
-class _JinyongScreenState extends State<JinyongScreen> {
-  List<Comment> comments = [
-    Comment(id: '1', author: 'Anonymous', content: '안녕하세요!'),
-    Comment(id: '2', author: 'Anonymous', content: '잘부탁해요!'),
-    Comment(id: '3', author: 'Anonymous', content: '좋은 글이네요!'),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +58,7 @@ class _JinyongScreenState extends State<JinyongScreen> {
                 Comments(
                   comments: comments,
                   onSubmit: (query) {
-                    if (query.isEmpty) {
+                    if (query.trim().isEmpty) {
                       return;
                     }
                     setState(() {

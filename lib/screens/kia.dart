@@ -1,3 +1,4 @@
+// ignore_for_file: prefer_const_constructors, must_be_immutable, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
 import 'package:introduce_e1if/widgets/comments.dart';
 import 'package:provider/provider.dart';
@@ -5,14 +6,9 @@ import 'package:provider/provider.dart';
 import '../models/comment.dart';
 import '../services/comment.dart';
 
-class KiaPage extends StatefulWidget {
+class KiaPage extends StatelessWidget {
   const KiaPage({Key? key}) : super(key: key);
 
-  @override
-  _KiaPageState createState() => _KiaPageState();
-}
-
-class _KiaPageState extends State<KiaPage> {
   Widget buildProfileSection() {
     return Row(
       children: [

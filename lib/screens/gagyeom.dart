@@ -1,19 +1,14 @@
+// ignore_for_file: prefer_const_constructors, must_be_immutable
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:introduce_e1if/models/comment.dart';
 import 'package:provider/provider.dart';
 
 import '../services/comment.dart';
-// ignore_for_file: prefer_const_constructors, must_be_immutable
 
-class GagyeomScreen extends StatefulWidget {
-  const GagyeomScreen({super.key});
+class GagyeomScreen extends StatelessWidget {
+  GagyeomScreen({super.key});
 
-  @override
-  State<GagyeomScreen> createState() => _GagyeomScreenState();
-}
-
-class _GagyeomScreenState extends State<GagyeomScreen> {
   final TextEditingController textarea = TextEditingController();
 
   @override
