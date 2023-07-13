@@ -79,51 +79,56 @@ class _GagyeomScreenState extends State<GagyeomScreen> {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.03,
                         ),
-                        TextField(
-                          style: TextStyle(color: Colors.white),
-                          cursorColor: Colors.white,
-                          decoration: InputDecoration(
-                            prefixIcon: Icon(Icons.person, color: Colors.grey),
-                            hintText: "댓글을 입력해 주세요.",
-                            hintStyle: TextStyle(color: Colors.white),
-                            labelText: 'Anonymous',
-                            labelStyle: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
-                            ),
-                            enabledBorder: OutlineInputBorder(
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                          child: TextField(
+                            style: TextStyle(color: Colors.white),
+                            cursorColor: Colors.white,
+                            decoration: InputDecoration(
+                              prefixIcon:
+                                  Icon(Icons.person, color: Colors.grey),
+                              hintText: "댓글을 입력해 주세요.",
+                              hintStyle: TextStyle(color: Colors.white),
+                              labelText: 'Anonymous',
+                              labelStyle: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                              border: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white),
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(20)),
-                                borderSide: BorderSide(color: Colors.grey)),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.grey),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                  borderSide: BorderSide(color: Colors.grey)),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.grey),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20)),
+                              ),
                             ),
+                            keyboardType: TextInputType.text,
+                            controller: textarea,
+                            onSubmitted: (query) {
+                              if (query.isEmpty) {
+                                return;
+                              }
+                              setState(
+                                () {
+                                  return [
+                                    Comment(
+                                      id: DateTime.now().toString(),
+                                      author: 'Anonymous',
+                                      content: query,
+                                    ),
+                                    ...comments,
+                                  ];
+                                },
+                              );
+                              textarea.clear();
+                            },
                           ),
-                          keyboardType: TextInputType.text,
-                          controller: textarea,
-                          onSubmitted: (query) {
-                            if (query.isEmpty) {
-                              return;
-                            }
-                            setState(
-                              () {
-                                return [
-                                  Comment(
-                                    id: DateTime.now().toString(),
-                                    author: 'Anonymous',
-                                    content: query,
-                                  ),
-                                  ...comments,
-                                ];
-                              },
-                            );
-                          },
                         ),
                         if (comments.isEmpty)
                           Container(
