@@ -3,28 +3,24 @@ import 'package:flutter/material.dart';
 import 'package:introduce_e1if/screens/seongjun.dart';
 import 'package:introduce_e1if/models/member.dart';
 import 'package:introduce_e1if/screens/jinyong.dart';
-import 'package:introduce_e1if/services/data_handler.dart';
 import 'package:introduce_e1if/screens/kia.dart';
 import 'package:introduce_e1if/screens/sanghun.dart';
 import 'package:introduce_e1if/screens/gagyeom.dart';
 import 'package:introduce_e1if/services/comment.dart';
+import 'package:introduce_e1if/utils/shared_preferences_io.dart';
 import 'package:introduce_e1if/widgets/header.dart';
 import 'package:introduce_e1if/widgets/member_tile.dart';
 import 'package:introduce_e1if/widgets/paragraph.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SharedPreferences pref = await SharedPreferences.getInstance();
-
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(
-        create: (_) => CommentService(IO(
-          save: (payload) => pref.setString('comments', payload),
-          load: () => pref.getString('comments'),
-        )),
+        create: (_) => CommentService(
+          io: SharedPreferencesIO(),
+        ),
       ),
     ],
     child: MainApp(),
