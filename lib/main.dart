@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:introduce_e1if/models/member.dart';
 import 'package:introduce_e1if/screens/jinyong.dart';
+import 'package:introduce_e1if/screens/sanghun.dart';
 import 'package:introduce_e1if/services/comment.dart';
 import 'package:introduce_e1if/widgets/header.dart';
 import 'package:introduce_e1if/widgets/member_tile.dart';
@@ -57,6 +58,7 @@ class MainApp extends StatelessWidget {
       tmi: '정크푸드를 좋아합니다',
       blog: 'sanc93.github.io',
       github: 'github.com/sanc93',
+      widget: const SanghunScreen(),
       profile:
           'https://ca.slack-edge.com/T043597JK8V-U05A2T9E5UP-2a1f31c8c5ff-512',
     ),

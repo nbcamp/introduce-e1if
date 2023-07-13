@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors, must_be_immutable
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SanghunScreen extends StatefulWidget {
@@ -29,13 +30,11 @@ class _SanghunScreenState extends State<SanghunScreen> {
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         leading: IconButton(
-          onPressed: () {}, // TODO: main.dart로 돌아가기
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.black,
-          ),
+          onPressed: () => Navigator.pop(context),
+          color: Colors.black,
+          icon: const Icon(CupertinoIcons.back),
         ),
-        title: const Text("소개", style: TextStyle(color: Colors.black)),
+        title: const Text("내 소개", style: TextStyle(color: Colors.black)),
       ),
       body: SafeArea(
         child: ListView(
