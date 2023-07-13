@@ -70,7 +70,7 @@ class MainApp extends StatelessWidget {
           '요즘은 주말마다 수제버거집 도장깨기를 하고 있습니다.',
       blog: 'sanc93.github.io',
       github: 'github.com/sanc93',
-      widget: const SanghunScreen(),
+      widget: SanghunScreen(),
       profile:
           'https://ca.slack-edge.com/T043597JK8V-U05A2T9E5UP-2a1f31c8c5ff-512',
     ),
@@ -82,7 +82,7 @@ class MainApp extends StatelessWidget {
           '저희 집에 온지 벌써 430일을 넘어가는 청소년(?)냥이랍니다 ㅎㅎ '
           '축구 하는 거나 보는 거 전부 좋아하고 가장 좋아하는 팀은 첼시에요!',
       blog: 'velog.io/@rkrua0418',
-      widget: const GagyeomScreen(),
+      widget: GagyeomScreen(),
       github: 'github.com/rkrua',
       profile:
           'https://ca.slack-edge.com/T043597JK8V-U059UCE8EEB-6804775942c0-512',

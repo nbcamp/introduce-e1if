@@ -6,14 +6,9 @@ import 'package:introduce_e1if/models/comment.dart';
 import 'package:provider/provider.dart';
 import 'package:introduce_e1if/services/comment.dart';
 
-class SanghunScreen extends StatefulWidget {
-  const SanghunScreen({Key? key}) : super(key: key);
+class SanghunScreen extends StatelessWidget {
+  SanghunScreen({Key? key}) : super(key: key);
 
-  @override
-  State<SanghunScreen> createState() => _SanghunScreenState();
-}
-
-class _SanghunScreenState extends State<SanghunScreen> {
   TextEditingController commentController = TextEditingController();
 
   @override

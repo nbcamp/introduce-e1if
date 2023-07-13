@@ -13,7 +13,6 @@ class MemberTile extends StatelessWidget {
       :name,
       :mbti,
       :tmi,
-      :role,
       :blog,
       :github,
       :profile,

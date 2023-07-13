@@ -7,14 +7,9 @@ import 'package:introduce_e1if/widgets/header.dart';
 import 'package:introduce_e1if/widgets/paragraph.dart';
 import 'package:provider/provider.dart';
 
-class JinyongScreen extends StatefulWidget {
+class JinyongScreen extends StatelessWidget {
   const JinyongScreen({super.key});
 
-  @override
-  State<JinyongScreen> createState() => _JinyongScreenState();
-}
-
-class _JinyongScreenState extends State<JinyongScreen> {
   @override
   Widget build(BuildContext context) {
     return Consumer<CommentService>(builder: (context, commentService, child) {

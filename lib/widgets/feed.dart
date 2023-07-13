@@ -1,3 +1,4 @@
+// ignore_for_file: prefer_const_constructors, must_be_immutable, prefer_const_literals_to_create_immutables
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -16,15 +17,15 @@ class Feed extends StatefulWidget {
   final String main2;
 
   @override
-  State<Feed> createState() => _feedState();
+  State<Feed> createState() => _FeedState();
 }
 
-class _feedState extends State<Feed> {
+class _FeedState extends State<Feed> {
   bool isFavorite = false;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 150,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,7 +40,7 @@ class _feedState extends State<Feed> {
               fit: BoxFit.cover,
             ),
           ),
-          SizedBox(width: 5),
+          SizedBox(width: 10),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
