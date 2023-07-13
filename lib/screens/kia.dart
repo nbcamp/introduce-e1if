@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:introduce_e1if/widgets/comments.dart';
+import 'package:provider/provider.dart';
 
 import '../models/comment.dart';
 import '../services/comment.dart';
@@ -12,12 +13,6 @@ class KiaPage extends StatefulWidget {
 }
 
 class _KiaPageState extends State<KiaPage> {
-  List<Comment> comments = [
-    Comment(id: '1', author: '익명이', content: '1!'),
-    Comment(id: '2', author: '익명이', content: '강아지 너모귀여워요!'),
-    Comment(id: '3', author: '익명이', content: '김콩만세!!'),
-  ];
-
   Widget buildProfileSection() {
     return Row(
       children: [
@@ -91,85 +86,87 @@ class _KiaPageState extends State<KiaPage> {
 
   @override
   Widget build(BuildContext context) {
-    var commentService = CommentService();
-    var useState = commentService.useState('kiakim');
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Introduction page',
-          style: TextStyle(color: Colors.white),
+    return Consumer<CommentService>(builder: (context, commentService, child) {
+      var UseState(:comments, :setState) = commentService.useState('박진용');
+      return Scaffold(
+        appBar: AppBar(
+          title: Text(
+            'Introduction page',
+            style: TextStyle(color: Colors.white),
+          ),
+          backgroundColor: Color.fromRGBO(7, 25, 82, 1),
         ),
-        backgroundColor: Color.fromRGBO(7, 25, 82, 1),
-      ),
-      body: Container(
-        color: Color.fromRGBO(184, 214, 248, 0.6),
-        child: SingleChildScrollView(
-          child: Padding(
-            padding:
-                const EdgeInsets.only(top: 50, left: 30, right: 30, bottom: 30),
-            child: Column(
-              children: [
-                buildProfileSection(),
-                SizedBox(height: 50),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    buildSectionTitle('일본'),
-                    SizedBox(height: 10),
-                    buildSectionContent(
-                      '일본에서 사회복지를 공부했습니다',
-                      Colors.white,
-                    ),
-                    SizedBox(height: 25),
-                    buildSectionTitle('한국'),
-                    SizedBox(height: 10),
-                    buildSectionContent(
-                      '연구원로 3년의 경험을 쌓고',
-                      Color.fromRGBO(164, 202, 245, 1),
-                    ),
-                    SizedBox(height: 20),
-                    buildSectionContent(
-                      '개발자로 커리어 전환을 했습니다.',
-                      Color.fromRGBO(164, 202, 245, 1),
-                    ),
-                    SizedBox(height: 20),
-                    buildSectionContent(
-                      '여전히 배워야할게 많네요 ',
-                      Color.fromRGBO(164, 202, 245, 1),
-                    ),
-                    SizedBox(height: 20),
-                    Comments(
-                      comments: comments,
-                      onSubmit: (query) {
-                        if (query.isEmpty) {
-                          return;
-                        }
-                        setState(() {
-                          comments = [
-                            Comment(
-                              id: DateTime.now().toString(),
-                              author: '익명이',
-                              content: query,
-                            ),
-                            ...comments,
-                          ];
-                        });
-                      },
-                      onDelete: (id) {
-                        setState(() {
-                          comments = comments
-                              .where((comment) => comment.id != id)
-                              .toList();
-                        });
-                      },
-                    ),
-                  ],
-                ),
-              ],
+        body: Container(
+          color: Color.fromRGBO(184, 214, 248, 0.6),
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.only(
+                  top: 50, left: 30, right: 30, bottom: 30),
+              child: Column(
+                children: [
+                  buildProfileSection(),
+                  SizedBox(height: 50),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      buildSectionTitle('일본'),
+                      SizedBox(height: 10),
+                      buildSectionContent(
+                        '일본에서 사회복지를 공부했습니다',
+                        Colors.white,
+                      ),
+                      SizedBox(height: 25),
+                      buildSectionTitle('한국'),
+                      SizedBox(height: 10),
+                      buildSectionContent(
+                        '연구원로 3년의 경험을 쌓고',
+                        Color.fromRGBO(164, 202, 245, 1),
+                      ),
+                      SizedBox(height: 20),
+                      buildSectionContent(
+                        '개발자로 커리어 전환을 했습니다.',
+                        Color.fromRGBO(164, 202, 245, 1),
+                      ),
+                      SizedBox(height: 20),
+                      buildSectionContent(
+                        '여전히 배워야할게 많네요 ',
+                        Color.fromRGBO(164, 202, 245, 1),
+                      ),
+                      SizedBox(height: 20),
+                      Comments(
+                        comments: comments,
+                        onSubmit: (query) {
+                          if (query.isEmpty) {
+                            return;
+                          }
+
+                          setState(() {
+                            return [
+                              Comment(
+                                id: DateTime.now().toString(),
+                                author: '익명이',
+                                content: query,
+                              ),
+                              ...comments,
+                            ];
+                          });
+                        },
+                        onDelete: (id) {
+                          setState(() {
+                            return comments
+                                .where((comment) => comment.id != id)
+                                .toList();
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
-      ),
-    );
+      );
+    });
   }
 }
