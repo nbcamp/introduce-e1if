@@ -16,8 +16,6 @@ class SanghunScreen extends StatefulWidget {
 class _SanghunScreenState extends State<SanghunScreen> {
   TextEditingController commentController = TextEditingController();
 
-  List<Comment> comments = [];
-
   @override
   Widget build(BuildContext context) {
     return Consumer<CommentService>(builder: (context, commentService, child) {
@@ -114,13 +112,11 @@ class _SanghunScreenState extends State<SanghunScreen> {
                             return;
                           }
                           setState(() {
-                            return comments = [
+                            return [
                               Comment(
                                 id: DateTime.now().toString(),
                                 author: 'Anonymous',
                                 content: query,
-                                createdAt:
-                                    DateTime.now().millisecondsSinceEpoch,
                               ),
                               ...comments,
                             ];
@@ -153,7 +149,6 @@ class _SanghunScreenState extends State<SanghunScreen> {
                               id: DateTime.now().toString(),
                               author: 'Anonymous',
                               content: comment,
-                              createdAt: DateTime.now().millisecondsSinceEpoch,
                             ),
                             ...comments,
                           ];
@@ -209,7 +204,7 @@ class _SanghunScreenState extends State<SanghunScreen> {
                       ),
                       onPressed: () {
                         setState(() {
-                          return comments = comments
+                          return comments
                               .where((c) => c.id != comment.id)
                               .toList();
                         });
