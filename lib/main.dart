@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:introduce_e1if/models/member.dart';
 import 'package:introduce_e1if/screens/jinyong.dart';
 import 'package:introduce_e1if/screens/kia.dart';
+import 'package:introduce_e1if/screens/sanghun.dart';
 import 'package:introduce_e1if/services/comment.dart';
 import 'package:introduce_e1if/widgets/header.dart';
 import 'package:introduce_e1if/widgets/member_tile.dart';
@@ -58,6 +59,7 @@ class MainApp extends StatelessWidget {
       tmi: '정크푸드를 좋아합니다',
       blog: 'sanc93.github.io',
       github: 'github.com/sanc93',
+      widget: const SanghunScreen(),
       profile:
           'https://ca.slack-edge.com/T043597JK8V-U05A2T9E5UP-2a1f31c8c5ff-512',
     ),
@@ -75,9 +77,8 @@ class MainApp extends StatelessWidget {
       name: '김귀아',
       mbti: 'ISFJ',
       role: '팀원',
-      tmi:
-          '저는 저희집 강아지를 너무너무 좋아합니다. 하지만 콩이한테 저는 1순위가 아닌것같아요.강아지 마음이 다 그렇죠.. 눈물좀 닦고 올게요..',
-      blog: 'https://velog.io/@hnmpot',
+      tmi: '집순이라구요',
+      blog: '',
       widget: const KiaPage(),
       github: 'github.com/kiakim01',
       profile:
