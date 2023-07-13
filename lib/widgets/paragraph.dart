@@ -20,7 +20,7 @@ class Paragraph extends StatelessWidget {
         content.join(separator),
         style: const TextStyle(
           height: 1.5,
-          fontSize: 14,
+          fontSize: 16,
         ).merge(style),
       ),
     );

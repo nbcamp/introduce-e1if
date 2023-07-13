@@ -3,7 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:introduce_e1if/models/comment.dart';
-import 'package:introduce_e1if/services/handler.dart';
+import 'package:introduce_e1if/services/data_handler.dart';
 
 class UseState {
   final List<Comment> comments;
@@ -15,7 +15,7 @@ class UseState {
   });
 }
 
-class CommentService extends ChangeNotifier with Handler {
+class CommentService extends ChangeNotifier with DataHandler {
   final Map<String, List<Comment>> _comments = {};
 
   CommentService(IO io) {
@@ -40,7 +40,7 @@ class CommentService extends ChangeNotifier with Handler {
   }
 
   @override
-  FutureOr<void> retrieve(String payload) {
+  FutureOr<void> import(String payload) {
     jsonDecode(payload).forEach((key, values) {
       if (values is! List) return;
       _comments[key] = values.map((value) => Comment.fromJson(value)).toList();
@@ -48,7 +48,7 @@ class CommentService extends ChangeNotifier with Handler {
   }
 
   @override
-  FutureOr<String> store() {
+  FutureOr<String> export() {
     return jsonEncode(
       _comments.map(
         (key, values) => MapEntry(

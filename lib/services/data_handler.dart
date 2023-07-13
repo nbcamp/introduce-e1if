@@ -10,15 +10,15 @@ class IO {
   });
 }
 
-mixin Handler {
+mixin DataHandler {
   IO? io;
 
-  FutureOr<void> retrieve(String payload);
-  FutureOr<String> store();
+  FutureOr<void> import(String payload);
+  FutureOr<String> export();
 
   Future<void> save() async {
     if (io == null) return Future.value();
-    var payload = await store();
+    var payload = await export();
     io?.save(payload);
   }
 
@@ -26,6 +26,6 @@ mixin Handler {
     if (io == null) return Future.value();
     var payload = await io!.load();
     if (payload == null) return;
-    retrieve(payload);
+    import(payload);
   }
 }

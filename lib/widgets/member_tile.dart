@@ -86,7 +86,7 @@ class MemberTile extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 5),
-              Text('$tmi ' * 5, style: const TextStyle(fontSize: 14)),
+              Text(tmi, style: const TextStyle(fontSize: 14)),
             ],
           ),
         ),
