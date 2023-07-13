@@ -17,13 +17,13 @@ class KiaPage extends StatelessWidget {
           child: SizedBox(
             child: Image.network(
               'https://ca.slack-edge.com/T043597JK8V-U05D6G5MADS-4ec3ce18cdf8-512',
-              width: 130,
-              height: 130,
+              width: 120,
+              height: 120,
               fit: BoxFit.cover,
             ),
           ),
         ),
-        SizedBox(width: 30),
+        SizedBox(width: 10),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
